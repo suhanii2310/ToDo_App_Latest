@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="login-page" class="page">
+        <img class="logo" src="/Users/suhanisrivastava/Desktop/Webpage/codalien_logo.jpeg" alt="logo" style="width:150px;height:150px">
+        <h1 class="header">Todo-App</h1>
+        <h2>Login</h2>
+        <div id="login-items" class="login-items">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <div id="main-page" class="page" style="display:none;">
+        <div class="sidebar">
+            <img class="logo" src="/Users/suhanisrivastava/Desktop/Webpage/codalien_logo.jpeg" alt="logo" style="width:200px;height:150px">
+            <button onclick="showHome()">Home</button>
+            <button onclick="showForm()">Form</button>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+
+        <div id="home" class="content">
+            <h2 id="page-title">Home</h2>
+            <div id="grid"></div>
+        </div>
+
+        <div id="form" class="content" style="display:none;">
+            <h2 id="page-title">Form</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="assigned-by">Assigned by:</label>
+                    <input type="text" id="assigned-by" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="assigned-to">Assigned to:</label>
+                    <select id="assigned-to" required>
+                        <option value="">Select</option>
+                        <option value="ABCD">ABCD</option>
+                        <option value="PQRS">PQRS</option>
+                        <option value="XYZ">XYZ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date">
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Start time:</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div class="form-group">
+                    <label for="hrs">Approx. hours to complete task (between 0 and 10):</label>
+                    <input type="number" id="hrs" name="hrs" min="0" max="10" step="0.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" required></textarea>
+                </div>
+
+                <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
