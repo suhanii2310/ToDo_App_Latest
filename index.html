@@ -7,15 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div id="login-page" class="page">
         <img class="logo" src="codalien_logo.jpeg" alt="logo" style="width:150px;height:150px">
         <h1 class="header">Todo-App</h1>
-        <h2>Login</h2>
-        <div id="login-items" class="login-items">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button onclick="login()">Login</button>
+        <div id="login-container" class="login-container">
+            <div class="form-toggle">
+                <button id="login-btn" onclick="showLogin()">Login</button>
+                <button id="signup-btn" onclick="showSignup()">Signup</button>
+            </div>
+            <div id="login-form" class="form-container">
+                <h2>Login</h2>
+                <input type="text" id="login-username" placeholder="Username" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                
+            </div>
+            <div id="signup-form" class="form-container" style="display: none;">
+                <h2>Signup</h2>
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="password" id="signup-password" placeholder="Create password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                <button onclick="signup()">Signup</button>
+            </div>
         </div>
     </div>
 

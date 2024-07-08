@@ -1,22 +1,54 @@
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+function showLogin() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+}
 
-    if (username && password) {
+function showSignup() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'block';
+}
+
+function login() {
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (email && password) {
         document.getElementById('login-page').style.display = 'none';
         document.getElementById('main-page').style.display = 'block';
         document.getElementById('assigned-by').value = username;
         showHome();
     } else {
-        alert('Please enter both username and password');
+        alert('Invalid username or password');
+    }
+}
+
+function signup() {
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (email && password && confirmPassword) {
+        if (password === confirmPassword) {
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            alert('Signup successful! Please login.');
+            showLogin();
+        } else {
+            alert('Passwords do not match');
+        }
+    } else {
+        alert('Please fill out all fields');
     }
 }
 
 function logout() {
     document.getElementById('main-page').style.display = 'none';
     document.getElementById('login-page').style.display = 'block';
-    document.getElementById('username').value = '';
-    document.getElementById('password').value = '';
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
 }
 
 function showHome() {
@@ -46,8 +78,8 @@ function validateEmail(email) {
 
 function validateDate(date) {
     const now = new Date();
-    const inputDate = new Date(date+'T00:00:00');
-    return inputDate <= new Date(now.setHours(0, 0, 0, 0)); 
+    const inputDate = new Date(date + 'T00:00:00');
+    return inputDate <= new Date(now.setHours(0, 0, 0, 0));
 }
 
 function validateTime(date, time) {
@@ -164,7 +196,6 @@ function submitForm() {
         showHome();
     }
 }
-
 
 realTimeValidation(document.getElementById('assigned-to'), value => value !== "", "Please fill out this field");
 realTimeValidation(document.getElementById('title'), value => value !== "", "Please fill out this field");
